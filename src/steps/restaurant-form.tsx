@@ -19,7 +19,8 @@ export default function RestaurantForm({ payload, handleChange }: { payload: Ord
                         placeholder="select a restaurant"
                         name="restaurant"
                         value={payload.restaurant}
-                        onChange={handleChange}>
+                        onChange={handleChange}
+                        data-testid="select-a-restaurant">
                         <option label=" "></option>
                         { displayRestaurnts }
                     </select>

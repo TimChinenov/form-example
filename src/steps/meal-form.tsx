@@ -18,7 +18,8 @@ export default function MealForm({ payload, handleChange }: { payload: OrderPayl
                     <select
                         name="mealType"
                         value={payload.mealType}
-                        onChange={handleChange}>
+                        onChange={handleChange}
+                        data-testid="select-meal">
                             <option label=" "></option>
                             { displayMeals }
                     </select>
@@ -26,11 +27,12 @@ export default function MealForm({ payload, handleChange }: { payload: OrderPayl
                 <div className="flex flex-col px-4 py-4">
                     <label>Enter Number of People</label>
                     <input
-                        placeholder="42"
+                        placeholder="i.e. 42"
                         type="number"
                         name="numberOfPeople"
                         value={payload.numberOfPeople}
-                        onChange={handleChange}>
+                        onChange={handleChange}
+                        data-testid="input-number-of-people">
                     </input>
                 </div>
             </div>

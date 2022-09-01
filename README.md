@@ -1,4 +1,34 @@
-# Getting Started with Create React App
+# Order-Out
+
+### Example
+
+The following are screenshots taken from the running application. A video demonstration is also available in `./resources/full-example.mp4`
+
+The following is the landing page of the form
+![step-1-blank](./resources/step1-blank.PNG)
+Errors appear if incorrect data is provided (42 is placeholder)
+![step1-bad](./resources/step1-bad-number-of-people.PNG)
+Submitting the correct data takes you to step 2
+![step2-blank](./resources/step-2-blank.PNG)
+Again, incorrect data presents an error
+![step2-bad](./resources/step-2-bad.PNG)
+Submitting valid data takes you to step 3
+![step3-blank](./resources/step3-blank.PNG)
+Not selecting enough dishes shows an error
+![step3-bad](./resources/step-3-bad.PNG)
+We can select multiple items on this step
+![step3-multiple](./resources/step3-multiple-items.PNG)
+When we're ready we can go to the review page
+![review](./resources/step4-review.PNG)
+When we hit submit, we log the payload to the console
+![submit](./resources/submit.PNG)
+
+Full Example Below:
+![full-example](./resources/full-example.gif)
+
+### Local Setup
+
+The follow boostrapped documentation is valid for this example applicaiton.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -28,19 +58,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

@@ -101,7 +101,7 @@ const NewDish = (
             <div className="flex flex-col">
                 <label>Please Select a Dish</label>
                 
-                <select value={selectedDishId} onChange={createNewDish}>
+                <select value={selectedDishId} onChange={createNewDish} data-testid="selectdish">
                     <option label=" "></option>
                     { displayDishes }
                 </select>
@@ -137,7 +137,8 @@ const ExistingDish = ({dish, updateDishes}: {dish: Dish, updateDishes: any}) => 
                     type="number"
                     value={quantity}
                     onChange={(e) => setQuantity(parseInt(e.target.value))}
-                    onBlur={updateQuantity}>
+                    onBlur={updateQuantity}
+                    data-testid="select-quantity">
                 </input>
             </div>
 

@@ -126,13 +126,11 @@ export default function Layout() {
     const isMealFormValid = () => {
         errorMessages = []
         if (!getMeals().includes(payload.mealType) || !payload.mealType) {
-            errorMessages.push(<p>No meal provided</p>)
+            errorMessages.push(<p key={errorMessages.length}>No meal provided</p>)
         }
 
         if (!payload.numberOfPeople || parseInt(payload.numberOfPeople) < 1) {
-            errorMessages.push(<p>Must order for at least 1 person</p>)
-        } else if (!payload.numberOfPeople || parseInt(payload.numberOfPeople) > 10) {
-            errorMessages.push(<p>Cannot order for more than 10 people</p>)
+            errorMessages.push(<p key={errorMessages.length}>Must order for at least 1 person</p>)
         }
 
         if (errorMessages.length > 0) {
@@ -145,7 +143,7 @@ export default function Layout() {
     const isRestaurantFormValid = () => {
         errorMessages = []
         if (!payload.restaurant) {
-            errorMessages.push(<p>No restaurant selected</p>)
+            errorMessages.push(<p key={errorMessages.length}>No restaurant selected</p>)
             return false
         }
         return true
@@ -158,13 +156,15 @@ export default function Layout() {
 
         for (let dish of dishes) {
             if (dish.quantity == 0) {
-                errorMessages.push(<p>Dish {dish.menuItem.name} must have a quantity of at least 1</p>)
+                errorMessages.push(<p key={errorMessages.length}>Dish {dish.menuItem.name} must have a quantity of at least 1</p>)
+            } else if (dish.quantity > 10) {
+                errorMessages.push(<p key={errorMessages.length}>Dish {dish.menuItem.name} cannot have a quantity greater than 10</p>)
             }
             sumDishes += dish.quantity
         }
 
         if (sumDishes < parseInt(payload.numberOfPeople)) {
-            errorMessages.push(<p>Number of dishes must be equal to or greater than number of people</p>)
+            errorMessages.push(<p key={errorMessages.length}>Number of dishes must be equal to or greater than number of people</p>)
         }
 
         if (errorMessages.length > 0) {
@@ -187,7 +187,7 @@ export default function Layout() {
                 { !isValid && errors.length > 0 &&
                     <div>
                         <p className="text-red-400"><strong>Correct Errors:</strong></p>
-                        <div className="text-red-400">
+                        <div className="text-red-400" data-testid="error-messages">
                             { errors }
                         </div>
                     </div>
@@ -205,7 +205,9 @@ export default function Layout() {
                 </div>
                 <div className="px-4 py-2">
                     <button 
-                        onClick={handleOnNext}>{step != 3 ? "next" : "submit"}</button>
+                        onClick={handleOnNext} data-testid="next-button">
+                            {step != 3 ? "next" : "submit"}
+                    </button>
                 </div>
             </section>
         </div>
